@@ -20,7 +20,7 @@
     </appender>
 
     <!-- Configuración de loggers -->
-    <root level="debug">
+    <root level="trace">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="ROLLING_FILE" />
     </root>

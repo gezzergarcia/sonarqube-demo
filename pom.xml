@@ -5,7 +5,7 @@
   <groupId>com.example</groupId>
   <artifactId>sonarqube-demo</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>sonarqube-demo</name>
   <url>http://maven.apache.org</url>
 
@@ -17,7 +17,7 @@
 
     <sonar.projectKey>sonarqube-demo</sonar.projectKey>
     <sonar.projectName>SonarQube Demo</sonar.projectName>
-    <sonar.projectVersion>1.0-SNAPSHOT</sonar.projectVersion>
+    <sonar.projectVersion>1.0.1</sonar.projectVersion>
     <sonar.sources>src/main/java</sonar.sources>
     <sonar.tests>src/test/java</sonar.tests>
     <sonar.java.binaries>target/classes</sonar.java.binaries>

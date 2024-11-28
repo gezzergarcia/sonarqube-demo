@@ -9,12 +9,13 @@ public class StringUtils {
 
     public boolean isPalindrome(String input) {
 
-        LOGGER.warn("validando palíndromo");
+        LOGGER.trace("validando palíndromo");
 
         if (input == null) {
             return false;
         }
         String cleaned = input.replaceAll("\\s+", "").toLowerCase();
+        LOGGER.trace("cleaned {}", cleaned);
         return cleaned.equals(new StringBuilder(cleaned).reverse().toString());
     }
 }

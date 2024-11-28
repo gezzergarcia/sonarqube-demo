@@ -40,7 +40,6 @@ Para la integración con SonarQube, se usan dos librerías: [`jacoco-maven-plugi
         <version>5.0.0.4389</version>
       </plugin>
 
-
     </plugins>
   </build>
 ```
@@ -58,18 +57,18 @@ Para probar el proyecto se ejecuta:
 mvn clean verify
 ```
 
-En la fase `clean` se eliminan los archivos generados previamente en `target`.
-Mientras que `verify` ejecuta todas las fases anteriores del ciclo de vida hasta llegar a `verify`, incluyendo: `validate`, `compile`, `test`, `package` y `verify`. La fase `verify` asegura que todo el ciclo de construcción sea exitoso y que los resultados cumplan con los criterios definidos (como cobertura de pruebas o validaciones personalizadas).
+En la fase `clean` se eliminan los archivos generados previamente en la carpeta `target`.
+Mientras que `verify` ejecuta todas las fases anteriores del ciclo de vida hasta llegar a `verify` (incluyendo: `validate`, `compile`, `test`, `package` y `verify`). La fase `verify` asegura que todo el ciclo de construcción sea exitoso y que los resultados cumplan con los criterios definidos (como cobertura de pruebas o validaciones personalizadas).
 
 **En `prepare-agent` se configura el formato en `xml`, ya que es el formato requerido por SonarQube.**
 
-La librería JaCoCo genera un conjunto de archivos html dentro de `target/site/jacoco`.
+La librería JaCoCo también genera un conjunto de archivos html dentro de la carpeta `target/site/jacoco`.
 
 ## Integración con SonarQube (`sonar-maven-plugin`)
 
 Para la autenticación en la conexión con SonarQube se debe tener un token que se genera desde el servidor SonarQube. Una vez que se tenga, por seguridad, **establecer el valor del token de SonarQube en una variable de ambiente**. En este ejemplo, la variable de ambiente que contiene el valor del token es `SONARQUBEUSER_TOKEN`.
 
-La propiedades para la conexión a SonarQube se encuentran en el `pom.xml`:
+Los datos para la conexión a SonarQube se encuentran en la sección de propiedades del arcvhivo `pom.xml`:
 
 ```xml
   <properties>
@@ -92,7 +91,7 @@ Así, podemos ejecutar las pruebas con el servidor de SonarQube el proyecto con 
 mvn sonar:sonar 
 ```
 
-Si no se tuviesen en el pom, se podría agregar esta información desde el comando de ejecución como argumentos. Para esto se necesitan al menos dos valores: `sonar.host.url` y `sonar.login`:
+Si no se tuviesen en el pom, se podría agregar esta información como argumentos desde el comando de ejecución. Para esto se necesitan al menos dos valores: `sonar.host.url` y `sonar.login`:
 
 ```zsh
 mvn sonar:sonar \
@@ -100,4 +99,4 @@ mvn sonar:sonar \
     -Dsonar.login=$SONARQUBEUSER_TOKEN
 ```
 
-Nota: Para que cargue correctamente el archivo logback.xml, debe estar en la carpeta `resources`.
+Nota: Para que cargue correctamente el archivo logback.xml, éste debe estar en la carpeta `resources`.
